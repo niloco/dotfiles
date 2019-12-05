@@ -1,15 +1,17 @@
 set shell=/bin/bash
 let mapleader = "\<Space>"
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'justinmk/vim-sneak'
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'ycm-core/YouCompleteMe'
 
 Plug 'rust-lang/rust.vim'
+
 call plug#end()
 
 " *============================================================================*
