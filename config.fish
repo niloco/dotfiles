@@ -1,5 +1,9 @@
 if test -f /home/niloco/.autojump/share/autojump/autojump.fish; . /home/niloco/.autojump/share/autojump/autojump.fish; end
 
+set -x PATH $PATH ~/.cargo/bin
+
+eval (ssh-agent -c)
+
 ## abbreviations
 
 # git
@@ -8,11 +12,17 @@ abbr -a gpush 'git push'
 abbr -a gpull 'git pull'
 
 # file viewing
-abbr -a l 'exa -l -h '
-abbr -a ls 'exa -l -h '
-abbr -a ll 'exa -l -h -a'
-abbr -a t 'exa -l -h -T -L=2'
-abbr -a tt 'exa -l -h -T -L=5'
+if command -v exa > /dev/null
+	abbr -a l 'exa -l -h'
+	abbr -a ls 'exa -l -h'
+	abbr -a ll 'exa -l -h -a'
+	abbr -a t 'exa -l -h -T -L=2'
+	abbr -a tt 'exa -l -h -T -L=5'
+else
+	abbr -a l 'ls -l'
+	abbr -a ls 'ls -l'
+	abbr -a ll 'ls -l -a'
+end
 
 # navigation
 abbr -a . 'cd ../'

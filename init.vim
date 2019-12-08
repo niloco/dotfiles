@@ -58,6 +58,9 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+" Move between matching braces etc
+nnoremap m %
+
 " Guess
 map <C-n> :NERDTreeToggle<CR>
 
@@ -65,6 +68,9 @@ map <C-n> :NERDTreeToggle<CR>
 inoremap <C-f> :sus<CR>
 nnoremap <C-f> :sus<CR>
 vnoremap <C-f> :sus<CR>
+
+" Brace matching
+inoremap {<CR> {<CR>}<ESC>O
 
 " Bindings with <leader>
 
