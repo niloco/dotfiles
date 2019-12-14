@@ -1,4 +1,11 @@
-if test -f /home/niloco/.autojump/share/autojump/autojump.fish; . /home/niloco/.autojump/share/autojump/autojump.fish; end
+# desktop location
+if test -f /home/niloco/.autojump/share/autojump/autojump.fish 
+	. /home/niloco/.autojump/share/autojump/autojump.fish
+# laptop location
+else if test -f /home/niloco/apps/autojump/.autojump/share/autojump/autojump.fish
+	. /home/niloco/apps/autojump/.autojump/share/autojump/autojump.fish
+end
+
 
 set -x PATH $PATH ~/.cargo/bin
 
