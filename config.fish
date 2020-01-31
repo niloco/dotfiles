@@ -13,6 +13,9 @@ eval (ssh-agent -c)
 
 ## abbreviations
 
+# vscode insiders
+abbr -a ci 'code-insiders'
+
 # git
 abbr -a gs 'git status'
 abbr -a gpush 'git push'
