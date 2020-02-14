@@ -117,3 +117,4 @@ if ! shopt -oq posix; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source ~/qmk_utils/activate_wsl.sh

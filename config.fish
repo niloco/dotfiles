@@ -8,8 +8,11 @@ end
 
 
 set -x PATH $PATH ~/.cargo/bin
+set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
 
 eval (ssh-agent -c)
+
+set EDITOR = nvim
 
 ## abbreviations
 
@@ -50,7 +53,22 @@ abbr -a crr 'env RUSTFLAGS="-C target-cpu=native" cargo run --release'
 abbr -a ct 'cargo test'
 
 # neovim
-abbr -a n nvim
 
 # make
 abbr -a m make
+
+## functions
+
+function d
+	while test $PWD != $HOME
+		if test -d .git
+			break
+		end
+		cd ../
+	end
+end
+
+function n
+	d
+	nvim (fzf)
+end
