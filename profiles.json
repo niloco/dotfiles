@@ -14,9 +14,7 @@
             "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
             "name": "Windows PowerShell",
             "commandline": "powershell.exe",
-            "hidden": false,
-            "fontFace": "Fira Code",
-            "colorScheme": "city-lights"
+            "hidden": false
         },
         {
             // Make changes here to the cmd.exe profile
@@ -26,46 +24,69 @@
             "hidden": false
         },
         {
-            "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-            "hidden": false,
-            "name": "Ubuntu",
-            "source": "Windows.Terminal.Wsl",
-            "fontFace": "Fira Code",
-            "colorScheme": "city-lights"
-        },
-        {
             "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
             "hidden": false,
             "name": "Azure Cloud Shell",
             "source": "Windows.Terminal.Azure"
+        },
+        {
+            "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+            "hidden": false,
+            "name": "Ubuntu",
+            "source": "Windows.Terminal.Wsl",
+	    "colorScheme": "noctis",
+	    "startingDirectory": "%USERPROFILE%/wslhome"
         }
     ],
 
     // Add custom color schemes to this array
-  "schemes": [
+    "schemes": [
       {
             "name": "city-lights",
-            "background": "#1d252c",
-            "foreground": "#b7c5d3",
-            "selectionBackground": "#28323a",
-            "brightRed": "#e27e8d",
-            "red": "#b62d65",
-            "brightCyan": "#baf1f5",
+            "black": "#41505E",
+            "red": "#d95468",
+            "green": "#8bd49c",
+            "yellow": "#ebbf83",
+            "blue": "#539afc",
+            "purple": "#b62d65",
             "cyan": "#70e1e8",
+            "white": "#ffffff",
+            "brightBlack": "#41505E",
+            "brightRed": "#d95468",
             "brightGreen": "#8bd49c",
-            "green": "#008b94",
-            "brightPurple": "#99c1f7",
-            "purple": "#68a1f0",
-            "brightBlue": "#8cd5ff",
-            "blue": "#5ec4ff",
-            "brightYellow": "#decb81",
-            "yellow": "#d98e48",
-            "brightBlack": "#171717",
-            "black": "#000000",
-            "brightWhite": "#cccccc",
-            "white": "#111111"
+            "brightYellow": "#ebbf83",
+            "brightBlue": "#539afc",
+            "brightPurple": "#b62d65",
+            "brightCyan": "#70e1e8",
+            "brightWhite": "#ffffff",
+            "background": "#1D252C",
+            "foreground": "#B7C5D3"
+      },
+      {
+            "name": "noctis",
+            "black": "#445555",
+            "red": "#c08872",
+            "green": "#72c09f",
+            "yellow": "#c8a984",
+            "blue": "#6196b8",
+            "purple": "#c28097",
+            "cyan": "#72b7c0",
+            "white": "#eeeeee",
+            "brightBlack": "#526876",
+            "brightRed": "#ca8468",
+            "brightGreen": "#84c8ab",
+            "brightYellow": "#d1aa7b",
+            "brightBlue": "#68a4ca",
+            "brightPurple": "#c88da2",
+            "brightCyan": "#84c0c8",
+            "brightWhite": "#c5d1d3",
+            // "background": "#0e1920",
+            "background": "#1b2932",
+            "foreground": "#b5bdc3"
       }
   ],
+
+  
 
     // Add any keybinding overrides to this array.
     // To unbind a default keybinding, set the command to "unbound"
