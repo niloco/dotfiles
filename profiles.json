@@ -34,8 +34,10 @@
             "hidden": false,
             "name": "Ubuntu",
             "source": "Windows.Terminal.Wsl",
-	    "colorScheme": "noctis",
-	    "startingDirectory": "%USERPROFILE%/wslhome"
+			"colorScheme": "noctis",
+			"startingDirectory": "%USERPROFILE%/wslhome",
+			"fontFace": "FiraCode",
+			"fontSize": 11
         }
     ],
 

@@ -11,16 +11,30 @@ if !exists('g:vscode')
     Plug 'machakann/vim-highlightedyank'
     Plug 'chriskempson/base16-vim'
     Plug 'sheerun/vim-polyglot'
+	Plug 'preservim/nerdcommenter'
+	Plug 'airblade/vim-rooter'
+	Plug '~/projects/tools/fzf'
+	Plug 'junegunn/fzf.vim'
+
     Plug 'flrnd/candid.vim'
+    Plug 'flrnd/plastic.vim'
     Plug 'arzg/vim-substrata'
     Plug 'sainnhe/edge'
     Plug 'wadackel/vim-dogrun'
     Plug 'relastle/bluewery.vim'
     Plug 'mhartington/oceanic-next'
-	Plug 'preservim/nerdcommenter'
-	Plug 'airblade/vim-rooter'
-	Plug '~/projects/tools/fzf'
-	Plug 'junegunn/fzf.vim'
+	Plug 'sainnhe/vim-color-forest-night'
+	Plug 'drewtempelmeyer/palenight.vim'
+	Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
+	Plug 'agreco/vim-citylights'
+	Plug 'kjssad/quantum.vim'
+	Plug 'Rigellute/rigel'
+	Plug 'lifepillar/vim-gruvbox8'
+	Plug 'ntk148v/vim-horizon'
+	Plug 'liuchengxu/space-vim-theme'
+	Plug 'beikome/cosme.vim'
+	Plug 'nightsense/cosmic_latte'
+	Plug 'Nequo/vim-allomancer'
 
     call plug#end()
 
@@ -31,7 +45,7 @@ if !exists('g:vscode')
 
     " For lightline
     set noshowmode
-    " let g:lightline = { 'colorscheme': 'bluewery' }
+	let g:lightline = { 'colorscheme': 'candid' }
 
 	" For nerdcommenter
 	let g:NERDSpaceDelims = 1
@@ -44,20 +58,32 @@ if !exists('g:vscode')
     " *============================================================================*
     " Colors
     " *============================================================================*
+	if exists('+termguicolors')
+		let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+		let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+		set termguicolors
+	endif
 
-    "set termguicolors
-     
-    set background=dark
-    syntax on
+	set background=dark
+	syntax on
 
-    "let g:edge_enable_italic = 1
-    "let g:edge_current_word = 'bold'
-    "colorscheme edge
+	" let g:edge_style = 'neon'
+
+	" let g:candid_color_store = {
+	"     \ "black": {"gui": "#2f343f", "cterm256": "0"},
+	"     \ "white": {"gui": "#efeeea", "cterm256": "255"},
+	"     \}
+
+	let g:candid_color_store = {
+		\ "black": {"gui": "#1b2932", "cterm256": "0"},
+		\ "white": {"gui": "#b5bdc3", "cterm256": "255"},
+		\}
+
+	colorscheme candid
 
     " *============================================================================*
     " Tabs
     " *============================================================================*
-
     set shiftwidth=4
     set softtabstop=4
     set tabstop=4
