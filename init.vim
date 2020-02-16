@@ -2,7 +2,7 @@ set shell=/bin/bash
 let mapleader = "\<Space>"
 
 if !exists('g:vscode')
-    call plug#begin('~/appdata/local/nvim/plugged')
+    call plug#begin('~/.config/nvim/plugged')
 
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -45,7 +45,7 @@ if !exists('g:vscode')
 
     " For lightline
     set noshowmode
-	let g:lightline = { 'colorscheme': 'candid' }
+	let g:lightline = { 'colorscheme': 'gruvbox_material' }
 
 	" For nerdcommenter
 	let g:NERDSpaceDelims = 1
@@ -77,17 +77,38 @@ if !exists('g:vscode')
 	let g:candid_color_store = {
 		\ "black": {"gui": "#1b2932", "cterm256": "0"},
 		\ "white": {"gui": "#b5bdc3", "cterm256": "255"},
+		\ "red": {"gui": "#c88da2", "cterm256": "255"},
+		\ "purple": {"gui": "#3f848d", "cterm256": "255"},
+		\ "yellow": {"gui": "#70c27f", "cterm256": "255"},
+		\ "cyan": {"gui": "#d3b692", "cterm256": "255"},
+		\ "green": {"gui": "#5998c0", "cterm256": "255"},
+		\ "comment": {"gui": "#72c09f", "cterm256": "255"},
+		\ "menublack": {"gui": "#1c1c1c", "cterm256": "255"},
+		\ "grey": {"gui": "#445555", "cterm256": "255"},
 		\}
 
-	colorscheme candid
+	colorscheme gruvbox-material
 
     " *============================================================================*
-    " Tabs
+    " Editor
     " *============================================================================*
+	
+	" Tabs
     set shiftwidth=4
     set softtabstop=4
     set tabstop=4
     set noexpandtab
+
+	" Sane splits
+	set splitright
+	set splitbelow
+
+	" Line numbers
+	set relativenumber
+	set number
+	
+	" Mouse
+	set mouse=a
 
     " *============================================================================*
     " Keymappings
