@@ -8,11 +8,13 @@ end
 
 
 set -x PATH $PATH ~/.cargo/bin
-set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
+set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
 
 eval (ssh-agent -c)
 
 set EDITOR = nvim
+
+source ~/projects/tools/base16-builder-python/output/fzf/fish/base16-gruvbox-dark-medium.fish
 
 ## abbreviations
 
@@ -61,19 +63,22 @@ abbr -a m make
 
 function d
 	set start $PWD
-
-	while test $PWD != $HOME
+	while test $PWD != "/"
 		if test -d .git
 			return
 		end
 		cd ../
 	end
-
 	cd start
-	return
 end
 
 function n
 	d
-	nvim (fzf)
+	set file (fzf)
+	echo $file
+	if test -n "$file"
+		nvim $file
+	else
+		return
+	end
 end
