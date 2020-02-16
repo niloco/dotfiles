@@ -60,12 +60,17 @@ abbr -a m make
 ## functions
 
 function d
+	set start $PWD
+
 	while test $PWD != $HOME
 		if test -d .git
-			break
+			return
 		end
 		cd ../
 	end
+
+	cd start
+	return
 end
 
 function n
