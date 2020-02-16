@@ -6,6 +6,11 @@ else if test -f /home/niloco/apps/autojump/.autojump/share/autojump/autojump.fis
 	. /home/niloco/apps/autojump/.autojump/share/autojump/autojump.fish
 end
 
+if test -f /home/niloco/projects/tools/base16/base16-builder-python/output/fzf/fish/base16-gruvbox-dark-medium.fish
+	source ~/projects/tools/base16/base16-builder-python/output/fzf/fish/base16-gruvbox-dark-medium.fish
+else if test -f /home/niloco/projects/tools/base16-builder-python/output/fzf/fish/base16-gruvbox-dark-medium.fish
+	source ~/projects/tools/base16-builder-python/output/fzf/fish/base16-gruvbox-dark-medium.fish
+end
 
 set -x PATH $PATH ~/.cargo/bin
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
@@ -14,7 +19,6 @@ eval (ssh-agent -c)
 
 set EDITOR = nvim
 
-source ~/projects/tools/base16-builder-python/output/fzf/fish/base16-gruvbox-dark-medium.fish
 
 ## abbreviations
 
