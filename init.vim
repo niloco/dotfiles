@@ -65,6 +65,10 @@ if !exists('g:vscode')
 
 	" For CoC
 	set signcolumn=yes
+	inoremap <silent><expr> <c-t> coc#refresh()
+	inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+	inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
     " *============================================================================*
     " Colors
@@ -77,26 +81,6 @@ if !exists('g:vscode')
 
 	set background=dark
 	syntax on
-
-	" let g:edge_style = 'neon'
-
-	" let g:candid_color_store = {
-	"     \ "black": {"gui": "#2f343f", "cterm256": "0"},
-	"     \ "white": {"gui": "#efeeea", "cterm256": "255"},
-	"     \}
-
-	let g:candid_color_store = {
-		\ "black": {"gui": "#1b2932", "cterm256": "0"},
-		\ "white": {"gui": "#b5bdc3", "cterm256": "255"},
-		\ "red": {"gui": "#c88da2", "cterm256": "255"},
-		\ "purple": {"gui": "#3f848d", "cterm256": "255"},
-		\ "yellow": {"gui": "#70c27f", "cterm256": "255"},
-		\ "cyan": {"gui": "#d3b692", "cterm256": "255"},
-		\ "green": {"gui": "#5998c0", "cterm256": "255"},
-		\ "comment": {"gui": "#72c09f", "cterm256": "255"},
-		\ "menublack": {"gui": "#1c1c1c", "cterm256": "255"},
-		\ "grey": {"gui": "#445555", "cterm256": "255"},
-		\}
 
 	colorscheme gruvbox-material
 
@@ -201,6 +185,9 @@ if !exists('g:vscode')
 	nnoremap <leader>j <C-w>j
 	nnoremap <leader>k <C-w>k
 	nnoremap <leader>l <C-w>l
+
+	" Quick reload
+	nnoremap <leader>r :so $MYVIMRC<CR>
 
 else
     " *============================================================================*

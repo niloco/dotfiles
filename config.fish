@@ -84,7 +84,3 @@ function nvim_open
 	end
 end
 
-## bindings
-
-# Open file
-bind --user \co nvim_open
