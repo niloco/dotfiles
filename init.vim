@@ -140,8 +140,10 @@ if !exists('g:vscode')
     vnoremap <C-h> :nohlsearch<CR>
 
     " Remap go to start/end of line
-    map H ^
-    map L $
+    nnoremap H ^
+	vnoremap H ^
+    nnoremap L $
+    vnoremap L $
 
     " No arrow keys
     nnoremap <up> <nop>
