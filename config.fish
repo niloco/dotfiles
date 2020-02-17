@@ -13,7 +13,7 @@ set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
 
 eval (ssh-agent -c)
 
-set EDITOR = nvim
+set -x EDITOR nvim
 
 
 ## abbreviations
@@ -46,7 +46,7 @@ abbr -a ... 'cd ../../../'
 abbr -a .... 'cd ../../../../'
 
 # cargo
-abbr -a c cargo
+abbr -a c 'cargo'
 abbr -a cc 'cargo check'
 abbr -a cb 'cargo build'
 abbr -a cbr 'env RUSTFLAGS="-C target-cpu=native" cargo build --release'
@@ -55,13 +55,14 @@ abbr -a crr 'env RUSTFLAGS="-C target-cpu=native" cargo run --release'
 abbr -a ct 'cargo test'
 
 # neovim
+abbr -a n 'nvim'
 
 # make
 abbr -a m make
 
 ## functions
 
-function d
+function find_repo
 	set start $PWD
 	while test $PWD != "/"
 		if test -d .git
@@ -69,16 +70,21 @@ function d
 		end
 		cd ../
 	end
-	cd start
+	cd $start
 end
 
-function n
-	d
+function nvim_open
+	find_repo
 	set file (fzf)
-	echo $file
 	if test -n "$file"
 		nvim $file
+		return
 	else
 		return
 	end
 end
+
+## bindings
+
+# Open file
+bind --user \co nvim_open

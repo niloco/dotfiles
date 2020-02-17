@@ -13,8 +13,10 @@ if !exists('g:vscode')
     Plug 'sheerun/vim-polyglot'
 	Plug 'preservim/nerdcommenter'
 	Plug 'airblade/vim-rooter'
+	Plug 'airblade/vim-gitgutter'
 	Plug '~/projects/tools/fzf'
 	Plug 'junegunn/fzf.vim'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     Plug 'flrnd/candid.vim'
     Plug 'flrnd/plastic.vim'
@@ -54,6 +56,15 @@ if !exists('g:vscode')
 	let g:NERDCommentEmptyLines = 1
 	let g:NERDTrimTrailingWhitespace = 1
 	let g:NERDToggleCheckAllLines = 1
+
+	" For gitgutter
+	set updatetime=100
+	set signcolumn=yes
+	let g:gitgutter_signs = 1
+	let g:gitgutter_grep = 'rg'
+
+	" For CoC
+	set signcolumn=yes
 
     " *============================================================================*
     " Colors
@@ -110,6 +121,15 @@ if !exists('g:vscode')
 	" Mouse
 	set mouse=a
 
+	" Search
+	set incsearch
+	set ignorecase
+	set smartcase
+	set gdefault
+
+	nnoremap <silent> n nzz
+	nnoremap <silent> N Nzz
+
     " *============================================================================*
     " Keymappings
     " *============================================================================*
@@ -159,11 +179,6 @@ if !exists('g:vscode')
     " Guess
     map <C-n> :NERDTreeToggle<CR>
 
-    " Suspend - doesn't work with visual and insert modes for some reason
-    inoremap <C-f> :sus<CR>
-    nnoremap <C-f> :sus<CR>
-    vnoremap <C-f> :sus<CR>
-
     " Brace matching
     inoremap {<CR> {<CR>}<ESC>O
 
@@ -179,11 +194,14 @@ if !exists('g:vscode')
     nnoremap <leader>q :q<CR>
 
     " Quick quit without saving
-    nnoremap <leader>Q :Quit!<CR>
+    nnoremap <leader>x :q!<CR>
 
-    " Better split
-    nnoremap <leader>v :vsp<Space>
-    nnoremap <leader>h :sp<Space>
+	" Split navigation
+	nnoremap <leader>h <C-w>h
+	nnoremap <leader>j <C-w>j
+	nnoremap <leader>k <C-w>k
+	nnoremap <leader>l <C-w>l
+
 else
     " *============================================================================*
     " Keymappings
