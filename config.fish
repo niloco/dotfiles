@@ -11,7 +11,9 @@ source ~/projects/tools/base16-builder-python/output/fzf/fish/base16-gruvbox-dar
 set -x PATH $PATH ~/.cargo/bin
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
 
-eval (ssh-agent -c)
+if test -z $SSH_AGENT_PID
+	eval (ssh-agent -c)
+end
 
 set -x EDITOR nvim
 
