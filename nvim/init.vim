@@ -16,7 +16,7 @@ if !exists('g:vscode')
 	Plug 'airblade/vim-gitgutter'
 	Plug '~/projects/tools/fzf'
 	Plug 'junegunn/fzf.vim'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     Plug 'flrnd/candid.vim'
     Plug 'flrnd/plastic.vim'
@@ -64,11 +64,11 @@ if !exists('g:vscode')
 	let g:gitgutter_grep = 'rg'
 
 	" For CoC
-	set signcolumn=yes
-	inoremap <silent><expr> <c-t> coc#refresh()
-	inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-	inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+	" set signcolumn=yes
+	" inoremap <silent><expr> <c-t> coc#refresh()
+	" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+	" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+	" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
     " *============================================================================*
     " Colors
@@ -79,9 +79,9 @@ if !exists('g:vscode')
 		set termguicolors
 	endif
 
-	set background=dark
 	syntax on
 
+	set background=dark
 	colorscheme gruvbox-material
 
     " *============================================================================*

@@ -1,0 +1,299 @@
+[bar/left]
+width = 80
+height = 60
+offset-x = 40
+offset-y = 15 
+module-margin = 1
+padding-right = 2
+bottom = true
+fixed-center = true
+override-redirect = true
+font-0 = Fira Code iCursive S12:style=Regular:size=50;9
+background = #282828
+modules-center = rofi
+
+[bar/i3bar]
+width = 1000
+height = 60
+offset-x = 160
+offset-y = 15 
+line-size = 2
+padding-left = 2
+padding-right = 2
+bottom = true
+override-redirect = true
+font-0 = Fira Code iCursive S12:style=Regular:size=20;3
+background = #0
+modules-left = i3
+
+[bar/right]
+width = 480
+height = 60
+offset-x = 2050
+offset-y = 15 
+module-margin = 1
+padding-right = 2
+bottom = true
+fixed-center = true
+override-redirect = true
+font-0 = Fira Code iCursive S12:style=Regular:size=14;3
+background = #282828
+modules-center = memory sep cpu sep battery sep powermenu
+
+[bar/center]
+width = 400
+height = 60
+offset-x = 1080
+offset-y = 15 
+module-margin = 1
+padding-right = 2
+bottom = true
+fixed-center = true
+override-redirect = true
+font-0 = Fira Code iCursive S12:style=Regular:size=18;3
+background = #282828
+modules-center = date
+
+[module/i3]
+type = internal/i3
+
+enable-click = true
+
+label-unfocused = %index%
+label-unfocused-padding = 2
+label-unfocused-foreground = #dfbf8e
+
+label-focused = %index%
+label-focused-padding = 2
+label-focused-foreground = #d3869b
+label-focused-underline = #d3869b
+
+[module/date]
+type = internal/date
+
+; Seconds to sleep between updates
+interval = 1.0
+
+date = %a, %b %d %Y
+time = %l:%M
+
+label = %date% %time%
+label-foreground = #d5c4a1
+
+[module/cpu]
+type = internal/cpu
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+label =  %percentage:2%%
+
+label-foreground = #83a598
+
+[module/memory]
+type = internal/memory
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+format = <label>
+
+; Available tokens:
+;   %percentage_used% (default)
+;   %percentage_free%
+;   %gb_used%
+;   %gb_free%
+;   %gb_total%
+;   %mb_used%
+;   %mb_free%
+;   %mb_total%
+;   %percentage_swap_used%
+;   %percentage_swap_free%
+;   %mb_swap_total%
+;   %mb_swap_free%
+;   %mb_swap_used%
+;   %gb_swap_total%
+;   %gb_swap_free%
+;   %gb_swap_used%
+
+label = %gb_used%
+
+label-foreground = #d3869b
+
+[module/temperature]
+type = internal/temperature
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+; Thermal zone to use
+; To list all the zone types, run
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 0
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+
+; Threshold temperature to display warning label (in degrees celsius)
+; Default: 80
+warn-temperature = 80
+
+format = <label>
+
+; Available tags:
+;   <label-warn> (default)
+;   <ramp>
+
+; Available tokens:
+;   %temperature% (deprecated)
+;   %temperature-c%   (default, temperature in °C)
+;   %temperature-f%   (temperature in °F)
+label =  %temperature-c%
+
+label-foreground = #BF616A
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = AC
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+
+; see "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+; Default: %H:%M:%S
+time-format = %H:%M
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging>
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw% (unreleased)
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = %percentage:2%%
+
+label-charging-foreground = #A3BE8C
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw% (unreleased)
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = %percentage:2%%
+
+label-discharging-foreground = #EDB54B
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw% (unreleased)
+label-full = %percentage:2%%
+label-full-foreground = #A3BE8C
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = #EDB54B
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = #A3BE8C
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-foreground = #DCA060
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
+[module/decor-glyph]
+type = custom/text
+content-foreground = #4C566A
+margin = 0
+
+[module/sep]
+inherit = module/decor-glyph
+content = "/"
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = false
+
+format-foreground = #fe8019
+
+label-open = ""
+label-close = ""
+label-close-foreground = #8ec07c
+
+; reboot
+menu-0-1 = "  "
+menu-0-1-exec = systemctl reboot
+menu-0-1-foreground = #fb4934
+; shutdown
+menu-0-0 = "  "
+menu-0-0-exec = systemctl poweroff
+menu-0-0-foreground = #fb4934
+
+[module/rofi]
+type = custom/text
+
+content = 
+content-foreground = #83a598
+
+click-left = exec rofi -dpi 135 -show-icons -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns
+
