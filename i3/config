@@ -18,10 +18,6 @@ gaps inner 30
 gaps bottom 80
 
 # autostart
-# exec --no-startup-id xrandr --dpi 135
-# exec --no-startup-id systemctl start dhcpcd@wlp3s0
-# exec --no-startup-id hsetroot -cover ~/wallnord.jpg
-# exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b --respect-prop-shadow
 exec --no-startup-id polybar left -r
 exec --no-startup-id polybar right -r
@@ -29,8 +25,6 @@ exec --no-startup-id polybar center -r
 exec --no-startup-id polybar i3bar -r
 exec dex -a
 exec feh --bg-scale ~/Downloads/mountains.jpg
-# exec --no-startup-id setxkbmap -layout us,ru
-# exec --no-startup-id setxkbmap -option 'grp:alt_shift_toggle'
 
 # Menu
 bindsym $mod+d exec rofi -dpi 135 -show-icons -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns
