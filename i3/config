@@ -13,9 +13,9 @@ set $mod Mod4
 
 # Gaps
 for_window [class=".*"] border pixel 0
-gaps outer 10
+gaps outer 0
 gaps inner 30
-gaps bottom 80
+gaps bottom 90
 
 # autostart
 exec --no-startup-id compton -b --respect-prop-shadow

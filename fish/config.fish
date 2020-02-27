@@ -9,7 +9,7 @@ end
 # source ~/projects/tools/base16-builder-python/output/fzf/fish/base16-gruvbox-dark-medium.fish
 
 set -x PATH $PATH ~/.cargo/bin
-# set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
+set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
 
 if test -z $SSH_AGENT_PID
 	eval (ssh-agent -c)
