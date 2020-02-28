@@ -11,6 +11,7 @@ override-redirect = true
 font-0 = Fira Code iCursive S12:style=Regular:size=50;9
 background = #282828
 modules-center = rofi
+wm-restack = i3
 
 [bar/i3bar]
 width = 900
@@ -27,6 +28,7 @@ font-0 = Fira Code iCursive S12:style=Regular:size=22;5
 background = #0
 ; modules-left = i3
 modules-center = i3
+wm-restack = i3
 
 [bar/right]
 width = 550
@@ -41,6 +43,7 @@ override-redirect = true
 font-0 = Fira Code iCursive S12:style=Regular:size=16;3
 background = #282828
 modules-center = memory sep cpu sep battery sep powermenu
+wm-restack = i3
 
 [bar/center]
 width = 400
@@ -55,6 +58,7 @@ override-redirect = true
 font-0 = Fira Code iCursive S12:style=Regular:size=16;3
 background = #282828
 modules-center = date
+wm-restack = i3
 
 [module/i3]
 type = internal/i3
