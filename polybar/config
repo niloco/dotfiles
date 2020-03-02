@@ -65,11 +65,11 @@ type = internal/i3
 
 enable-click = true
 
-label-unfocused = %index%
+label-unfocused = %name%
 label-unfocused-padding = 2
 label-unfocused-foreground = #dfbf8e
 
-label-focused = %index%
+label-focused = %name%
 label-focused-padding = 1
 label-focused-foreground = #d3869b
 label-focused-underline = #d3869b
