@@ -1,10 +1,10 @@
-# desktop location
-if test -f /home/niloco/.autojump/share/autojump/autojump.fish 
-	. /home/niloco/.autojump/share/autojump/autojump.fish
-# laptop location
-else if test -f /home/niloco/apps/autojump/.autojump/share/autojump/autojump.fish
-	. /home/niloco/apps/autojump/.autojump/share/autojump/autojump.fish
-end
+# # desktop location
+# if test -f /home/niloco/.autojump/share/autojump/autojump.fish
+#     . /home/niloco/.autojump/share/autojump/autojump.fish
+# # laptop location
+# else if test -f /home/niloco/apps/autojump/.autojump/share/autojump/autojump.fish
+#     . /home/niloco/apps/autojump/.autojump/share/autojump/autojump.fish
+# end
 
 # source ~/projects/tools/base16-builder-python/output/fzf/fish/base16-gruvbox-dark-medium.fish
 
@@ -62,8 +62,15 @@ abbr -a n 'nvim'
 # make
 abbr -a m make
 
+# zoxide
+abbr -a ji "j -i"
+abbr -a ja "zoxide add"
+abbr -a jq "zoxide query"
+abbr -a jr "zoxide remove"
+
 ## functions
 
+# nvim stuff for opening relative to git repo
 function find_repo
 	set start $PWD
 	while test $PWD != "/"
@@ -86,3 +93,20 @@ function nvim_open
 	end
 end
 
+# zoxide support
+function zoxide-add --on-event fish_prompt
+	zoxide add
+end
+
+function j
+	if test (count $argv) -gt 0
+		set _Z_RESULT (zoxide query $argv)
+		switch "$_Z_RESULT"
+			case 'query: *'
+				cd (string sub -s 8 -- "$_Z_RESULT")
+				commandline -f repaint
+			case '*'
+				echo -n "$_Z_RESULT"
+		end
+	end
+end
