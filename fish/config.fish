@@ -6,7 +6,7 @@
 #     . /home/niloco/apps/autojump/.autojump/share/autojump/autojump.fish
 # end
 
-# source ~/projects/tools/base16-builder-python/output/fzf/fish/base16-gruvbox-dark-medium.fish
+source ~/.config/dotfiles/fish/base16-gruvbox-dark-medium.fish
 
 set -x PATH $PATH ~/.cargo/bin
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
@@ -16,7 +16,6 @@ if test -z $SSH_AGENT_PID
 end
 
 set -x EDITOR nvim
-
 
 ## abbreviations
 
@@ -67,6 +66,7 @@ abbr -a ji "j -i"
 abbr -a ja "zoxide add"
 abbr -a jq "zoxide query"
 abbr -a jr "zoxide remove"
+abbr -a jd "find_dir"
 
 ## functions
 
@@ -87,9 +87,6 @@ function nvim_open
 	set file (fzf)
 	if test -n "$file"
 		nvim $file
-		return
-	else
-		return
 	end
 end
 
@@ -110,3 +107,23 @@ function j
 		end
 	end
 end
+
+function find_repo_dir
+	find_repo
+	set dir (fd -t d -H -I -E .git/ -E target/ | fzf)
+	if test -n "$dir"
+		cd $file
+	end
+end
+
+function find_dir
+	set current_dir $PWD
+	cd ~
+	set target_dir (fd -t d -H | fzf)
+	if test -n "$target_dir"
+		cd $target_dir
+	else
+		cd $current_dir
+	end
+end
+
