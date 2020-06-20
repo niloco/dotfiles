@@ -11,6 +11,8 @@ source ~/.config/dotfiles/fish/base16-gruvbox-dark-medium.fish
 set -x PATH $PATH ~/.cargo/bin
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
 
+zoxide init fish | source
+
 if test -z $SSH_AGENT_PID
 	eval (ssh-agent -c)
 end
