@@ -1,14 +1,6 @@
-# # desktop location
-# if test -f /home/niloco/.autojump/share/autojump/autojump.fish
-#     . /home/niloco/.autojump/share/autojump/autojump.fish
-# # laptop location
-# else if test -f /home/niloco/apps/autojump/.autojump/share/autojump/autojump.fish
-#     . /home/niloco/apps/autojump/.autojump/share/autojump/autojump.fish
-# end
-
 source ~/.config/dotfiles/fish/base16-gruvbox-dark-medium.fish
 
-set -x PATH $PATH ~/.cargo/bin
+set -x PATH $PATH ~/.cargo/bin ~/.linuxbrew/bin
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
 
 zoxide init fish | source
@@ -101,11 +93,11 @@ function j
 	if test (count $argv) -gt 0
 		set _Z_RESULT (zoxide query $argv)
 		switch "$_Z_RESULT"
-			case 'query: *'
-				cd (string sub -s 8 -- "$_Z_RESULT")
-				commandline -f repaint
-			case '*'
+			case 'Error: *'
 				echo -n "$_Z_RESULT"
+			case '*'
+				cd "$_Z_RESULT"
+				commandline -f repaint
 		end
 	end
 end
