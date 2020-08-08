@@ -2,8 +2,6 @@ if !exists('g:vscode')
 	nnoremap <silent> n nzz
 	nnoremap <silent> N Nzz
 
-    nnoremap ; :
-
     " Ctrl+c as Esc
     nnoremap <C-c> <Esc>
     inoremap <C-c> <Esc>
@@ -50,19 +48,33 @@ if !exists('g:vscode')
     " Brace matching
     inoremap {<CR> {<CR>}<ESC>O
 
+	" Tab navigation
+	nnoremap <silent> <TAB> :bnext<CR>
+	nnoremap <silent> <S-TAB> :bprevious<CR>
+
+	" Window resizing
+	nnoremap <silent> <M-j>    :resize -2<CR>
+	nnoremap <silent> <M-k>    :resize +2<CR>
+	nnoremap <silent> <M-h>    :vertical resize -2<CR>
+	nnoremap <silent> <M-l>    :vertical resize +2<CR>
+
     " Bindings with <leader>
+	map <leader> <Plug>(easymotion-prefix)
 
     " Toggles between most recent buffers
     nnoremap <leader><leader> <C-^>
 
     " Quick save
-    nnoremap <leader>w :w<CR>
+    " nnoremap <leader>w :w<CR>
+    nnoremap ;w :w<CR>
 
     " Quick quit (if saved)
-    nnoremap <leader>q :q<CR>
+    " nnoremap <leader>q :q<CR>
+    nnoremap ;q :q<CR>
 
     " Quick quit without saving
-    nnoremap <leader>x :q!<CR>
+    " nnoremap <leader>x :q!<CR>
+    nnoremap ;x :x<CR>
 
 	" Split navigation
 	nnoremap <leader>h <C-w>h
@@ -70,8 +82,8 @@ if !exists('g:vscode')
 	nnoremap <leader>k <C-w>k
 	nnoremap <leader>l <C-w>l
 
-	" Quick reload
-	nnoremap <leader>r :so $MYVIMRC<CR>
+	" Quick config reload
+	nnoremap ;r :so $MYVIMRC<CR>
 
 else
         

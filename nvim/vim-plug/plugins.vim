@@ -11,8 +11,11 @@ if !exists('g:vscode')
 	Plug 'preservim/nerdcommenter'
 	Plug 'airblade/vim-rooter'
 	Plug 'airblade/vim-gitgutter'
+	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'easymotion/vim-easymotion'
+	Plug 'ryanoasis/vim-devicons'
 
     Plug 'flrnd/candid.vim'
     Plug 'flrnd/plastic.vim'

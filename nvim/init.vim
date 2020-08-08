@@ -8,4 +8,5 @@ if !exists('g:vscode')
 	source ~/.config/dotfiles/nvim/plugin-config/nerdcommenter.vim
 	source ~/.config/dotfiles/nvim/plugin-config/gitgutter.vim
 	source ~/.config/dotfiles/nvim/plugin-config/lightline.vim
+	source ~/.config/dotfiles/nvim/plugin-config/easymotion.vim
 endif
