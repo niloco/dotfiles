@@ -16,6 +16,8 @@ if !exists('g:vscode')
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'easymotion/vim-easymotion'
 	Plug 'ryanoasis/vim-devicons'
+	Plug 'lervag/vimtex'
+	Plug 'liuchengxu/vim-which-key'
 
     Plug 'flrnd/candid.vim'
     Plug 'flrnd/plastic.vim'

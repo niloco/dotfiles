@@ -4,3 +4,4 @@
 	let g:NERDCommentEmptyLines = 1
 	let g:NERDTrimTrailingWhitespace = 1
 	let g:NERDToggleCheckAllLines = 1
+	let g:NERDCreateDefaultMappings = 0

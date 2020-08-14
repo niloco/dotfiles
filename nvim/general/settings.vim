@@ -1,5 +1,4 @@
 set shell=/bin/bash
-let mapleader = "\<Space>"
 
 " *============================================================================*
 " Colors
@@ -18,6 +17,8 @@ colorscheme gruvbox-material
 " *============================================================================*
 " Editor
 " *============================================================================*
+
+set timeoutlen=1000
 
 " Tabs
 set shiftwidth=4
@@ -42,3 +43,4 @@ set ignorecase
 set smartcase
 set gdefault
 
+set textwidth=80
